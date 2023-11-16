@@ -13,12 +13,17 @@ export class RegisterComponent {
   username: string = '';
   email: string = '';
   password: string = '';
+  showPassword: boolean = false;
 
   constructor(private authService: AuthService, private router : Router) { }
 
+
+  showInputPassword() {
+    this.showPassword = !this.showPassword;
+  }
+
   signUp(form: NgForm) {
     const full_name = form.value.email;
-    const username = form.value.username;
     const email = form.value.email;
     const password = form.value.password;
 
