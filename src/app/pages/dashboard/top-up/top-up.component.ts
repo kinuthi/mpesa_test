@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TopUpFormComponent } from 'src/app/components/top-up-form/top-up-form.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TopUpFormComponent } from 'src/app/components/top-up-form/top-up-form.component';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
@@ -14,7 +14,6 @@ export class TopUpComponent {
  
 
   async ngOnInit() {
-   
   this.loadAllTopUps();
   }
 
@@ -22,8 +21,6 @@ export class TopUpComponent {
     const resp = await this.localStorage.getTopUpData();
 
     this.allTopUpsArray = JSON.parse(resp);
-
-    console.log('nice mike', this.allTopUpsArray );
   }
 
   async topUpUser(){
