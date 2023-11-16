@@ -16,6 +16,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../../enviroments/environments';
 import { HeaderComponent } from './components/header/header.component';
+import { LayoutComponent } from './pages/layout/layout.component';
+import { TopUpFormComponent } from './components/top-up-form/top-up-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { HeaderComponent } from './components/header/header.component';
     MainContentComponent,
     TopUpComponent,
     TransferComponent,
-    HeaderComponent
+    HeaderComponent,
+    LayoutComponent,
+    TopUpFormComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    NgbModule,
     
   ],
   providers: [],

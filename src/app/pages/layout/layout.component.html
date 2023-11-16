@@ -1,0 +1,9 @@
+<!-- <app-header [hidden]="currentUrl === '/login' || currentUrl === '/register' || currentUrl === '/reset-password'"></app-header>
+   -->
+<div class="main-container">
+  <app-side-bar [hidden]="currentUrl === '/login' || currentUrl === '/register' || currentUrl === '/reset-password'"></app-side-bar>
+  
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

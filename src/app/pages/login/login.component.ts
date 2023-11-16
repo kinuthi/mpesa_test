@@ -11,11 +11,14 @@ import {  Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  showPassword: boolean = false;
 
 
   constructor(private authService: AuthService, private router : Router) { }
 
-  
+  showInputPassword() {
+    this.showPassword = !this.showPassword;
+  }
 
   signIn(form: NgForm) {
     const email = form.value.email;
