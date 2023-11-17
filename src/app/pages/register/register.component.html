@@ -6,7 +6,7 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm)">
+          <form [formGroup]="form" (ngSubmit)="signUp()">
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
               <p class="lead fw-normal mb-0 me-3">Sign up with</p>
               <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -29,26 +29,36 @@
             </div>
   
             <div class="form-outline mb-4">
-              <input type="text" id="form3Example1" [(ngModel)]="full_name"  name="full_name" class="form-control form-control-lg"
+              <input type="text" id="form3Example1" formControlName="full_name" class="form-control form-control-lg"
                 placeholder="Your Name" />
-              <label class="form-label" for="form3Example1">Full Names</label>
+              <label class="form-label" for="name">Full Names</label>
             </div>
-  
-      
-  
+
             <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" [(ngModel)]="email"  name="email" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" />
-              <label class="form-label" for="form3Example3">Email address</label>
+              <input type="email" id="form3Example3" formControlName="email" class="form-control form-control-lg"
+                     placeholder="Enter a valid email address" />
+              <label class="form-label" for="email">Email address</label>
+              <div *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched" class="text-danger">
+                Email is required.
+              </div>
+              <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched" class="text-danger">
+                Enter a valid email address.
+              </div>
             </div>
   
             <div class="form-outline mb-3">
-                <input type="{{ showPassword ? 'text' : 'password' }}" id="form3Example4" [(ngModel)]="password" name="password" class="form-control form-control-lg"
-                  placeholder="Enter password" />
-                <label class="form-label" for="form3Example4">Password</label>
-              
-              
+              <input type="{{ showPassword ? 'text' : 'password' }}" id="pass" formControlName="password"
+                     class="form-control form-control-lg" placeholder="Enter password" />
+              <label class="form-label" for="form3Example4">Password</label>
+              <div *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched" class="text-danger">
+                Password is required.
               </div>
+              <div *ngIf="form.get('password')?.hasError('minlength') && form.get('password')?.touched" class="text-danger">
+                Password must be at least 6 characters.
+              </div>
+            
+            
+            </div>
 
             <div class="d-flex justify-content-between align-items-center">
                 <div class="form-check mt-2">
