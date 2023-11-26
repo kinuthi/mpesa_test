@@ -46,8 +46,9 @@ export class AuthService {
   
     try {
       // Sign in the user with email and password
+      console.log('nice mike', auth, email, password);
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    console.log('nice mike', userCredential);
+  
       // Access the user object
       const user = userCredential.user;
       
