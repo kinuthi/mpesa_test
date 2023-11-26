@@ -6,7 +6,7 @@
 
 <div class="profile-usertitle">
     <div class="profile-usertitle-name">
-        Jason Davis
+    {{currentUser?.email}}
     </div>
     <div class="profile-usertitle-job">
         Developer
@@ -45,7 +45,7 @@
                                             
 
         <div>
-        <h4 class="profile-desc-title">About Jason Davis</h4>
+        <h4 class="profile-desc-title">About {{currentUser?.email}}</h4>
         <span class="profile-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
         <div class="margin-top-20 profile-desc-link">
             <i class="fa fa-globe"></i>
@@ -53,7 +53,7 @@
         </div>
         <div class="margin-top-20 profile-desc-link">
             <i class="fa fa-twitter"></i>
-            <a href="https://www.twitter.com/jasondavisfl/">@jasondavisfl</a>
+            <a href="https://www.twitter.com/jasondavisfl/"> {{currentUser?.email}}</a>
         </div>
         <div class="margin-top-20 profile-desc-link">
             <i class="fa fa-facebook"></i>
