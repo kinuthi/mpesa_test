@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TopUpFormComponent } from 'src/app/components/top-up-form/top-up-form.component';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { TopUpService } from 'src/app/services/topup.service';
 
 @Component({
   selector: 'app-top-up',
@@ -10,7 +11,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 })
 export class TopUpComponent {
  allTopUpsArray : any;
-  constructor(private modalService: NgbModal,private localStorage: LocalStorageService) { }
+  constructor(private modalService: NgbModal,private localStorage: LocalStorageService,private topUpServ : TopUpService) { }
  
 
   async ngOnInit() {
@@ -18,24 +19,23 @@ export class TopUpComponent {
   }
 
   async loadAllTopUps(){
-    const resp = await this.localStorage.getTopUpData();
 
-    this.allTopUpsArray = JSON.parse(resp);
+   this.topUpServ.topUpData.subscribe(value=>{
+    this.allTopUpsArray = value;
+   })
+
   }
 
   async topUpUser(){
     const modalRef = this.modalService.open(TopUpFormComponent, {
-      centered: true, // You can customize modal options here
-      // ... other options
+      centered: true, 
     });
     modalRef.result.then(
       async (result) => {
-          console.log('nice again');
         await this.loadAllTopUps();
         console.log(`Modal closed with result: ${result}`);
       },
       async (reason) => {
-        console.log('nice again 2');
         await this.loadAllTopUps();
         console.log(`Modal dismissed with reason: ${reason}`);
       }
