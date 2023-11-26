@@ -22,6 +22,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserProfileComponent } from './pages/profile/user-profile/user-profile.component';
 
 
+// Initialize Firebase
+import { initializeApp } from 'firebase/app';
+initializeApp(environment.firebaseConfig);
+
 @NgModule({
   declarations: [
     AppComponent,
