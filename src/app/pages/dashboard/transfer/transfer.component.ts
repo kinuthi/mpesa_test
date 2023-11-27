@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { TopUpService } from 'src/app/services/topup.service';
 
 @Component({
   selector: 'app-transfer',
@@ -9,7 +10,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 export class TransferComponent {
   allTopUpsArray : any;
   currentUser : any;
-  constructor(private localStorage: LocalStorageService) { }
+  constructor(private localStorage: LocalStorageService,private topUpServ : TopUpService) { }
 
   async ngOnInit() {
     this.loadAllMyTopUps();
@@ -17,9 +18,9 @@ export class TransferComponent {
 
   async loadAllMyTopUps(){
     this.currentUser = await  this.localStorage.getUser();
-    const resp = await this.localStorage.getTopUpData();
-    this.allTopUpsArray = JSON.parse(resp);
-
+    this.topUpServ.topUpData.subscribe(value=>{
+      this.allTopUpsArray = value;
+     })
     this.allTopUpsArray =  this.allTopUpsArray.filter((value: { created_by: any; }) => value.created_by  === this.currentUser?.email  )
   
   }

@@ -19,7 +19,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { TopUpFormComponent } from './components/top-up-form/top-up-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserProfileComponent } from './pages/profile/user-profile/user-profile.component';
 
+
+// Initialize Firebase
+import { initializeApp } from 'firebase/app';
+initializeApp(environment.firebaseConfig);
 
 @NgModule({
   declarations: [
@@ -34,7 +39,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TransferComponent,
     HeaderComponent,
     LayoutComponent,
-    TopUpFormComponent
+    TopUpFormComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

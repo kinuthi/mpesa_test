@@ -31,7 +31,7 @@ export class RegisterComponent {
     const email = this.form.value.email;
     const password = this.form.value.password;
 
-    this.authService.signUp(email, password)
+    this.authService.signUpUser(email, password)
       .then((response: any) => {
         this.router.navigate(['/login']);
         console.log('signed up in successfully:', response);
