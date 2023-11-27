@@ -4,7 +4,12 @@
 </div>
 <form #topUpForm="ngForm" (ngSubmit)="topUp(topUpForm)">
 <div class="modal-body">
-
+ 
+        <div class="mb-3">
+            <label>Phone Number </label>
+            <input type="number" id="phone" [(ngModel)]="phoneNumber" name="phoneNumber"  class="form-control form-control-lg"
+            />
+        </div>
         <div class="mb-3">
             <label>Top Up Amount </label>
             <input type="email" id="amount"  [(ngModel)]="amount" name="amount" class="form-control form-control-lg"

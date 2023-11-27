@@ -24,6 +24,7 @@ import { UserProfileComponent } from './pages/profile/user-profile/user-profile.
 
 // Initialize Firebase
 import { initializeApp } from 'firebase/app';
+import { TransferUserComponent } from './components/transfer-user/transfer-user.component';
 initializeApp(environment.firebaseConfig);
 
 @NgModule({
@@ -40,7 +41,8 @@ initializeApp(environment.firebaseConfig);
     HeaderComponent,
     LayoutComponent,
     TopUpFormComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    TransferUserComponent
   ],
   imports: [
     BrowserModule,

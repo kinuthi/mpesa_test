@@ -16,7 +16,7 @@ export class RegisterComponent {
   constructor(private fb: FormBuilder , private authService: AuthService, private router : Router) {
     this.form = this.fb.group({
       email: new FormControl('', Validators.pattern('[^ @]*@[^ @]*')),
-      full_name: [null, Validators.compose([Validators.required])],
+      phoneNumber: [null, Validators.compose([Validators.required])],
       password: [null, Validators.compose([Validators.required])],
     });
    }
@@ -27,11 +27,11 @@ export class RegisterComponent {
   }
 
   signUp() {
-    const full_name = this.form.value.email;
+    const phoneNumber = this.form.value.phoneNumber;
     const email = this.form.value.email;
     const password = this.form.value.password;
 
-    this.authService.signUpUser(email, password)
+    this.authService.signUpUser(email, password,phoneNumber)
       .then((response: any) => {
         this.router.navigate(['/login']);
         console.log('signed up in successfully:', response);
