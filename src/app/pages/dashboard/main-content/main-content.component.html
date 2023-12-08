@@ -6,12 +6,12 @@
         <div class="container-fluid">
             <!-- Card stats -->
             <div class="row g-6 mb-6">
-                <div class="col-xl-3 col-sm-6 col-12">
+                <div class="col-xl-3 col-sm-6 col-12 analysis-card">
                     <div class="card shadow border-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Balance</span>
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">My Balance</span>
                                     <span class="h3 font-bold mb-0"> {{currentBal || 0}}</span>
                                 </div>
                                 <div class="col-auto">
@@ -29,13 +29,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 col-12">
+                <div class="col-xl-3 col-sm-6 col-12 analysis-card">
                     <div class="card shadow border-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Today Transactions</span>
-                                    <span class="h3 font-bold mb-0">{{todayTrans || 0}}</span>
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Top Ups</span>
+                                    <span class="h3 font-bold mb-0">{{ currentTopUpCount || 0}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
@@ -52,13 +52,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 col-12">
+                <div class="col-xl-3 col-sm-6 col-12 analysis-card">
                     <div class="card shadow border-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Pending Transactions</span>
-                                    <span class="h3 font-bold mb-0">1.400</span>
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Transfers</span>
+                                    <span class="h3 font-bold mb-0">{{ currentTransferBalCount ||  0}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
@@ -75,13 +75,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 col-12">
+                <div class="col-xl-3 col-sm-6 col-12 analysis-card">
                     <div class="card shadow border-0">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">All Transactions</span>
-                                    <span class="h3 font-bold mb-0">{{totalTrans || 0}}</span>
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Transfers</span>
+                                    <span class="h3 font-bold mb-0">{{ currentTransferBal || 0}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">

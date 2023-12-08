@@ -6,7 +6,6 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TopUpComponent } from './pages/dashboard/top-up/top-up.component';
 import { TransferComponent } from './pages/dashboard/transfer/transfer.component';
-import { UserProfileComponent } from './pages/profile/user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -14,7 +13,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'top-up', component: TopUpComponent },
-  { path: 'profile', component: UserProfileComponent },
   { path: 'transfer', component: TransferComponent },
   { path: 'reset-password', component: ChangePasswordComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 

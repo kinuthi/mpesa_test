@@ -19,12 +19,21 @@ import { HeaderComponent } from './components/header/header.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { TopUpFormComponent } from './components/top-up-form/top-up-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { UserProfileComponent } from './pages/profile/user-profile/user-profile.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule, Routes }   from '@angular/router';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 // Initialize Firebase
 import { initializeApp } from 'firebase/app';
 import { TransferUserComponent } from './components/transfer-user/transfer-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 initializeApp(environment.firebaseConfig);
 
 @NgModule({
@@ -41,7 +50,6 @@ initializeApp(environment.firebaseConfig);
     HeaderComponent,
     LayoutComponent,
     TopUpFormComponent,
-    UserProfileComponent,
     TransferUserComponent
   ],
   imports: [
@@ -51,7 +59,17 @@ initializeApp(environment.firebaseConfig);
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    RouterModule,
+    MatExpansionModule,
+    MatTooltipModule,
     
   ],
   providers: [],

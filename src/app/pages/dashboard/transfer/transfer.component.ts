@@ -20,19 +20,11 @@ export class TransferComponent {
     }
     async loadAllTopUps(){
 
-      this.topUpServ.topUpData.subscribe(value=>{
+      this.topUpServ.transferData.subscribe(value=>{
        this.allTopUpsArray = value;
       })
    
      }
-  // async loadAllMyTopUps(){
-  //   this.currentUser = await  this.localStorage.getUser();
-  //   this.topUpServ.topUpData.subscribe(value=>{
-  //     this.allTopUpsArray = value;
-  //    })
-  //   this.allTopUpsArray =  this.allTopUpsArray.filter((value: { created_by: any; }) => value.created_by  === this.currentUser?.email  )
-  
-  // }
   async transferFunds(){
     const modalRef = this.modalService.open(TransferUserComponent, {
       centered: true, 

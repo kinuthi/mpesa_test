@@ -1,9 +1,14 @@
-<!-- <app-header [hidden]="currentUrl === '/login' || currentUrl === '/register' || currentUrl === '/reset-password'"></app-header>
-   -->
-<div class="main-container">
-  <app-side-bar [hidden]="currentUrl === '/login' || currentUrl === '/register' || currentUrl === '/reset-password'"></app-side-bar>
+<app-header class="hidden-xs-up" [hidden]="currentUrl === '/login' || currentUrl === '/register' || currentUrl === '/reset-password'"></app-header>
+  
+
   
   <div class="main-content">
-    <router-outlet></router-outlet>
+    <div class="main-container">
+      <app-side-bar class="hidden-xs-down" [hidden]="currentUrl === '/login' || currentUrl === '/register' || currentUrl === '/reset-password'"></app-side-bar>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+     
+    </div>
+  
   </div>
-</div>

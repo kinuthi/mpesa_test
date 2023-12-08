@@ -27,7 +27,7 @@ export class TransferUserComponent {
     this.phoneNumber = form.value.phoneNumber;
     this.amount = form.value.amount;
     if (this.phoneNumber && this.amount !== null) {
-      this.topUpService.addTopUp(this.phoneNumber, this.amount);
+      this.topUpService.transferFunds(this.phoneNumber, this.amount);
       this.phoneNumber = '';
       this.amount = null;
     }

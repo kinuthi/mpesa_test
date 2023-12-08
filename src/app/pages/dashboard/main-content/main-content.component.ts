@@ -10,13 +10,20 @@ import { TopUpService } from 'src/app/services/topup.service';
 export class MainContentComponent {
 
   currentBal : any;
+  currentTransferBal : any;
   todayTrans = 0;
   totalTrans = 0;
+  currentTopUpCount =0;
+  currentTransferBalCount=0;
   allTopUpsArray  : any;
+  allTransfers : any;
   todayTransArr : any;
   constructor(private localStorageServ : LocalStorageService,private topUpServ : TopUpService) {
     this.topUpServ.topUpData.subscribe(value=>{
       this.allTopUpsArray = value;
+     })
+     this.topUpServ.transferData.subscribe(value=>{
+      this.allTransfers = value;
      })
   
     this.loadAllTopUps();
@@ -26,10 +33,13 @@ export class MainContentComponent {
 
   async loadMyBal(){
     let currentUser = await  this.localStorageServ.getUser();
-    let myTrans =  this.allTopUpsArray.filter((value: { created_by: any; }) => value.created_by  === currentUser?.email  )
-     myTrans.map( (value: { amount: any; })=>{
-      this.currentBal+=parseInt(value.amount)
-    })
+ 
+    this.currentBal = currentUser['currentBal'];
+    this.currentTopUpCount = currentUser['currentTopUpCount'];
+    this.currentTransferBal = currentUser['totalTransfer'];
+    this.currentTransferBalCount = currentUser['currentTransferCount'];
+
+   
   }
 
 

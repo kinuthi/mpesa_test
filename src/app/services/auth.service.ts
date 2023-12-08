@@ -40,11 +40,9 @@ export class AuthService {
      
   
     try {
-      console.log('nice mike', auth, email, password);
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
       const user = userCredential.user;
-      console.log('User logged in:', user);
+      this.localStorageServ.saveUser(user);
       
       return user;
     } catch (error) {

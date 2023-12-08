@@ -1,13 +1,26 @@
-<header class="bg-surface-primary border-bottom pt-6">
-    <div class="container-fluid">
-        <div class="mb-npx">
-            <div class="row align-items-center">
-                <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                    <h1 class="h2 mb-0 ls-tight">Welcome {{currentUser?.email}}</h1>
+<header class="bg-surface-primary  border-bottom" style="display: flex; justify-content: space-between; align-items: center; padding: 10px">
+    <div>
+        <a href="#" style="text-decoration: none; color: #333;">
+            <img src="https://quikk.dev/assets/img/logo.svg" alt="Logo" style="height: 40px; width: auto;">
+        </a>
+    </div>
+    <div>
+        <a href="#" style="margin-right: 10px; text-decoration: none; color: #333;">
+            <div class="dropdown">
+                <a href="#" id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar-parent-child">
+                        <img alt="Image Placeholder" src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar- rounded-circle">
+                        <span class="avatar-child avatar-badge bg-success"></span>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarAvatar">
+                    <a [routerLink]="'/dashboard'" class="dropdown-item">Dashboard</a>
+                    <a [routerLink]="'/top-up'" class="dropdown-item">Top Up Funds</a>
+                    <a [routerLink]="'/transfer'"class="dropdown-item">Transfer Funds</a>
+                    <hr class="dropdown-divider">
+                    <a (click)="signOut()" class="dropdown-item">Logout</a>
                 </div>
-            
             </div>
-        
-        </div>
+         </a>
     </div>
 </header>

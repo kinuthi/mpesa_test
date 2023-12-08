@@ -26,8 +26,8 @@ export class TopUpFormComponent {
   topUp(form: NgForm){
     this.phoneNumber = form.value.phoneNumber;
     this.amount = form.value.amount;
-    if (this.phoneNumber && this.amount !== null) {
-      this.topUpService.addTopUp(this.phoneNumber, this.amount);
+    if (this.amount !== null) {
+      this.topUpService.addTopUp(this.amount);
       this.phoneNumber = '';
       this.amount = null;
     }
