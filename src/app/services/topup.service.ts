@@ -29,7 +29,7 @@ export class TopUpService {
 
     
     this.currentUser = await  this.localStorageServ.getUser();
-    console.log('nice mike', this.currentUser );
+ 
 
     const resp = await this.localStorageServ.getTopUpData(); 
 
@@ -83,9 +83,8 @@ export class TopUpService {
     this.topUpHistory.map(value=>{
       currentUserBal+= parseInt(value.amount)
     })
-    
-    this.currentUser["currentBal"] = currentUserBal-this.currentUser["totalTransfer"]; 
-    this.currentUser["currentTopUpCount"] = this.transferHistory.length;
+    this.currentUser["currentBal"] = currentUserBal- (this.currentUser.hasOwnProperty('totalTransfer') ? this.currentUser["totalTransfer"] : 0); 
+    this.currentUser["currentTopUpCount"] = this.topUpHistory.length;
    this.localStorageServ.saveUser( this.currentUser);
    
 

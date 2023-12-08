@@ -11,13 +11,15 @@
             />
         </div>
         <div class="mb-3">
-            <label>Top Up Amount </label>
+            <label>Transfer  Amount </label>
             <input type="email" id="amount"  [(ngModel)]="amount" name="amount" class="form-control form-control-lg"
             />
         </div>
  
 </div>
 <div class="modal-footer">
-    <button type="submit" class="btn btn-outline-dark" >Save</button>
+    <button type="submit" [disabled]="transferButton" class="btn btn-outline-dark" >Save</button>
+    <p style="color:red" [hidden]="!transferButton">Insufficient Balance , you cannot transfer any amount when your account balance is zero , kindly top up and try again</p>
+
 </div>
 </form>

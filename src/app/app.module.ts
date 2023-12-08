@@ -19,15 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { TopUpFormComponent } from './components/top-up-form/top-up-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { RouterModule, Routes }   from '@angular/router';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 // Initialize Firebase
@@ -61,15 +53,7 @@ initializeApp(environment.firebaseConfig);
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
-    RouterModule,
-    MatExpansionModule,
-    MatTooltipModule,
+
     
   ],
   providers: [],

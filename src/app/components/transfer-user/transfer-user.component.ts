@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { TopUpService } from 'src/app/services/topup.service';
 
 @Component({
@@ -12,12 +13,27 @@ export class TransferUserComponent {
 
 
   closeResult = '';
+  currentBal = 0;
+  transferButton = true;
 
   phoneNumber: string = '';
   amount: number | null = null;
  
 
-  constructor(private modalService: NgbModal,private topUpService: TopUpService) {}
+  constructor(private modalService: NgbModal,private topUpService: TopUpService,private localStorageServ : LocalStorageService) {
+    
+  }
+  async ngOnInit(){
+    let currentUser = await  this.localStorageServ.getUser();
+    this.currentBal = currentUser['currentBal'];
+   
+  
+    if(this.currentBal > 1 ){
+      this.transferButton = false;
+    }
+    console.log('okay', this.transferButton);
+
+  }
 
   closeModal() {
     this.modalService.dismissAll()

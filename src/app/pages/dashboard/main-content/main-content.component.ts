@@ -33,7 +33,6 @@ export class MainContentComponent {
 
   async loadMyBal(){
     let currentUser = await  this.localStorageServ.getUser();
- 
     this.currentBal = currentUser['currentBal'];
     this.currentTopUpCount = currentUser['currentTopUpCount'];
     this.currentTransferBal = currentUser['totalTransfer'];
